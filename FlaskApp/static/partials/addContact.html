@@ -1,0 +1,32 @@
+<p class="contacts-title">New contact</p>
+<form name="addressBookForm">
+    <div class="left-data">
+        <label for="first-name">First name</label>
+        <input type="text" class="first-name" name="firstName" placeholder="Brad"  ng-model="firstName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid() ? 'error' : none" ng-pattern="firstLastPattern" required/>
+        <span ng-show="addressBookForm.firstName.$error.pattern">First name must start with capital letter and contain no symbols.</span>
+        <span ng-show="checkDirtyAndRequired()">First name is required.</span>
+
+        <!-- <label for="last-name">Last name</label>
+        <input type="text" class="last-name" name="lastName" placeholder="Smith" ng-model="lastName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid() ? 'error' : none" ng-pattern="firstLastPattern" required/>
+        <span ng-show="addressBookForm.lastName.$error.pattern">Last name must start with capital letter and contain no symbols.</span>
+        <span ng-show="checkDirtyAndRequired()">Last name is required.</span> -->
+
+        <label for="email">Email address</label>
+        <input type="text" class="email" name="email" placeholder="brad@smith.com"/>
+        <label for="phone-number">Phone number</label>
+        <input type="text" class="phone-number" name="phone-number" placeholder="+(40) 748 422 542"/>
+    </div>
+    <div class="right-data">
+        <label for="street">Street</label>
+        <input type="text" class="street" name="street" placeholder="No., street"/>
+        <label for="city">City</label>
+        <input type="text" class="city" name="city" placeholder="City"/>
+        <label for="Country">Country</label>
+        <input type="text" class="country" name="country" placeholder="Country"/>
+        <label for="Postal code">Postal code</label>
+        <input type="text" class="postal-code" name="postal-code" placeholder="440012"/>
+    </div>
+    <div style="clear:both"></div>
+    {{firstLastPattern}}
+    <input class="add-btn bottom" type="submit" value="Add New Contact"/>
+</form>

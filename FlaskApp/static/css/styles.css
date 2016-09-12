@@ -1,0 +1,157 @@
+@font-face {
+    font-family: NeutraDemi;
+    src: url("../fonts/neutraDemi.otf") format("opentype");
+}
+
+body {
+    /*background-color: #EE30A7;*/
+}
+
+.start-page {
+    text-align: center;
+}
+
+.book-title {
+    font: 400 110px/0.8 'Great Vibes', Helvetica, sans-serif;
+    color: #000;
+    text-shadow: 4px 4px 3px rgba(0,0,0,0.1);
+    line-height: 300px;
+}
+
+.contacts-title {
+    font: 50px 'NeutraDemi';
+    text-align: center;
+    margin: 40px 0 10px 0;
+}
+
+.fa.fa-book {
+    font-size: 10em;
+    line-height: 10px;
+}
+
+a {
+    color: inherit;
+}
+
+.center {
+    text-align: center;
+    position: relative;
+}
+
+.no-contacts {
+    font: 20px 'NeutraDemi';
+    margin: 100px 0 40px 0;
+}
+
+.add-btn {
+	border: none;
+    text-align: center;
+	font-family: 'NeutraDemi';
+	font-size: inherit;
+	color: inherit;
+	background: none;
+	cursor: pointer;
+	padding: 15px 60px;
+	display: inline-block;
+	margin: 15px 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	outline: none;
+    width: inherit;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.add-btn:after {
+	content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.add-btn:before {
+	font-family: 'NeutraDemi';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	position: relative;
+	-webkit-font-smoothing: antialiased;
+}
+
+.add-btn {
+	border: 3px solid #BF5FFF;
+	color: #BF5FFF;
+}
+
+.add-btn:hover,
+.add-btn:active {
+	color: white;
+	background: #BF5FFF;
+}
+
+.bottom {
+    position: absolute;
+    top: 450px; left: 0; right: 0;
+    margin-left: auto; margin-right: auto;
+    width: 300px;
+}
+
+/*New contact*/
+form {
+    position: relative;
+}
+
+.left-data {
+    float: left;
+    width: 50%;
+}
+
+.right-data {
+    float: right;
+    width: 50%;
+}
+
+label {
+    display: block;
+    padding: 40px 5px 5px 2px;
+    font-size: 1em;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    margin : 0 auto;
+    width: 80%;
+}
+
+input {
+    display: block;
+    margin : 0 auto;
+}
+
+.first-name, .last-name, .email, .phone-number, .street, .city, .country, .postal-code {
+    border: 3px solid #000;
+    font-family: 'Lato', Calibri, Arial, sans-serif;
+    line-height: 1.5;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    color: #000;
+    display: block;
+    width: 80%;
+    background: transparent;
+}
+
+.first-name:focus, .last-name:focus, .email:focus, .phone-number:focus, .street:focus, .city:focus, .country:focus, .postal-code:focus {
+    outline: none;
+    border: 3px solid #bf5fff;
+}
+
+.error {
+    border: 3px solid #ff4c4c;
+}
