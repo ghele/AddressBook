@@ -17,15 +17,15 @@ myApp.config(["$routeProvider", function($routeProvider) {
 myApp.controller("AddCtrl", ["$scope", function($scope) {
     $scope.firstLastPattern = new RegExp(/^\b[A-Z][a-z]*(\s*\b[A-Z][a-z]*\b)*$/);
 
-    $scope.checkDirtyAndInvalid = function() {
-        if(($scope.addressBookForm.firstName.$dirty) && ($scope.addressBookForm.firstName.$invalid)) {
+    $scope.checkDirtyAndInvalid = function(fieldName) {
+        if(($scope.addressBookForm[fieldName].$dirty) && ($scope.addressBookForm[fieldName].$invalid)) {
             return true;
         }
         return false;
     }
 
-    $scope.checkDirtyAndRequired = function() {
-        if(($scope.addressBookForm.firstName.$dirty) && ($scope.addressBookForm.firstName.$error.required)) {
+    $scope.checkDirtyAndRequired = function(fieldName) {
+        if(($scope.addressBookForm[fieldName].$dirty) && ($scope.addressBookForm[fieldName].$error.required)) {
             return true;
         }
         return false;
@@ -34,7 +34,7 @@ myApp.controller("AddCtrl", ["$scope", function($scope) {
 
 myApp.controller("ContactsCtrl", ["$scope", function($scope) {
     // var self = this;
-    $scope.contactEntries = [ {name:"erf"} ];
+    $scope.contactEntries = [];
     $scope.contactsList = function() {
         if($scope.contactEntries.length != 0) {
             return true;

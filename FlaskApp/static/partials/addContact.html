@@ -2,14 +2,14 @@
 <form name="addressBookForm">
     <div class="left-data">
         <label for="first-name">First name</label>
-        <input type="text" class="first-name" name="firstName" placeholder="Brad"  ng-model="firstName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid() ? 'error' : none" ng-pattern="firstLastPattern" required/>
+        <input type="text" class="first-name" name="firstName" placeholder="Brad"  ng-model="firstName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid('firstName') ? 'error' : none" ng-pattern="firstLastPattern" required/>
         <span ng-show="addressBookForm.firstName.$error.pattern">First name must start with capital letter and contain no symbols.</span>
-        <span ng-show="checkDirtyAndRequired()">First name is required.</span>
+        <span ng-show="checkDirtyAndRequired('firstName')">First name is required.</span>
 
-        <!-- <label for="last-name">Last name</label>
-        <input type="text" class="last-name" name="lastName" placeholder="Smith" ng-model="lastName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid() ? 'error' : none" ng-pattern="firstLastPattern" required/>
+        <label for="last-name">Last name</label>
+        <input type="text" class="last-name" name="lastName" placeholder="Smith" ng-model="lastName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid('lastName') ? 'error' : none" ng-pattern="firstLastPattern" required/>
         <span ng-show="addressBookForm.lastName.$error.pattern">Last name must start with capital letter and contain no symbols.</span>
-        <span ng-show="checkDirtyAndRequired()">Last name is required.</span> -->
+        <span ng-show="checkDirtyAndRequired('lastName')">Last name is required.</span>
 
         <label for="email">Email address</label>
         <input type="text" class="email" name="email" placeholder="brad@smith.com"/>
