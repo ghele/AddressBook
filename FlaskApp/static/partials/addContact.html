@@ -1,24 +1,52 @@
 <p class="contacts-title">New contact</p>
 <form name="addressBookForm">
     <div class="left-data">
+        <!-- First name -->
         <label for="first-name">First name</label>
-        <input type="text" class="first-name" name="firstName" placeholder="Brad"  ng-model="firstName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid('firstName') ? 'error' : none" ng-pattern="firstLastPattern" required/>
+        <input type="text" class="first-name"
+               name="firstName" placeholder="Brad"
+               ng-model="firstName" ng-model-options="{ updateOn: 'blur' }"
+               ng-class="checkDirtyAndInvalid('firstName') ? 'error' : none"
+               ng-pattern="firstLastPattern" required/>
         <span ng-show="addressBookForm.firstName.$error.pattern">First name must start with capital letter and contain no symbols.</span>
         <span ng-show="checkDirtyAndRequired('firstName')">First name is required.</span>
-
+        <!-- Last name -->
         <label for="last-name">Last name</label>
-        <input type="text" class="last-name" name="lastName" placeholder="Smith" ng-model="lastName" ng-model-options="{ updateOn: 'blur' }" ng-class="checkDirtyAndInvalid('lastName') ? 'error' : none" ng-pattern="firstLastPattern" required/>
+        <input type="text" class="last-name"
+               name="lastName" placeholder="Smith"
+               ng-model="lastName" ng-model-options="{ updateOn: 'blur' }"
+               ng-class="checkDirtyAndInvalid('lastName') ? 'error' : none"
+               ng-pattern="firstLastPattern" required/>
         <span ng-show="addressBookForm.lastName.$error.pattern">Last name must start with capital letter and contain no symbols.</span>
         <span ng-show="checkDirtyAndRequired('lastName')">Last name is required.</span>
-
+        <!-- Email -->
         <label for="email">Email address</label>
-        <input type="text" class="email" name="email" placeholder="brad@smith.com"/>
+        <input type="email" class="email"
+               name="email" placeholder="brad@smith.com"
+               ng-model="email" ng-model-options="{ updateOn: 'blur' }"
+               ng-class="checkDirtyAndInvalid('email') ? 'error' : none" required/>
+        <span ng-show="checkInput('email', 'email')">Email is invalid.</span>
+        <!-- Phone number -->
         <label for="phone-number">Phone number</label>
-        <input type="text" class="phone-number" name="phone-number" placeholder="+(40) 748 422 542"/>
+        <input type="number" class="phone-number"
+               name="phoneNumber" placeholder="0748422542"
+               ng-model="phoneNumber" ng-model-options="{ updateOn: 'blur' }"
+               ng-minlength="7" ng-maxlength="20"
+               ng-class="checkDirtyAndInvalid('phoneNumber') ? 'error' : none" required/>
+        <span ng-show="checkInput('phoneNumber', 'number')">Phone number is invalid.</span>
+        <span ng-show="checkInput('phoneNumber', 'minlength')">Phone number is too short.</span>
+        <span ng-show="checkInput('phoneNumber', 'maxlength')">Phone number is too long.</span>
     </div>
     <div class="right-data">
-        <label for="street">Street</label>
-        <input type="text" class="street" name="street" placeholder="No., street"/>
+        <label for="street">Address</label>
+        <input type="text" class="street"
+               name="street" placeholder="Street no apt. no"
+               ng-model="street" ng-model-options="{ updateOn: 'blur' }"
+               ng-class="checkDirtyAndInvalid('street') ? 'error' : none"
+               ng-pattern="streetCityCountryPattern" required/>
+        <span ng-show="addressBookForm.street.$error.pattern">Address might contain only letters and numbers, no special characters. Use spaces insted.</span>
+        <span ng-show="checkDirtyAndRequired('street')">Address is required.</span>
+
         <label for="city">City</label>
         <input type="text" class="city" name="city" placeholder="City"/>
         <label for="Country">Country</label>
@@ -27,6 +55,5 @@
         <input type="text" class="postal-code" name="postal-code" placeholder="440012"/>
     </div>
     <div style="clear:both"></div>
-    {{firstLastPattern}}
     <input class="add-btn bottom" type="submit" value="Add New Contact"/>
 </form>
