@@ -1,5 +1,6 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, jsonify
 from flask.ext.triangle import Triangle
+import json
 
 app = Flask(__name__)
 Triangle(app)
@@ -8,10 +9,14 @@ Triangle(app)
 def index():
     return render_template('index.html')
 
-@app.route('/index', methods=['GET'])
-def index1():
-    a = "fv"
-    return a
+@app.route('/addContact', methods=['GET', 'POST'])
+def contactDataPost():
+    try:
+        json_data = request.json['contactData']
+        return jsonify(status='OK', message='inserted successfully')
+
+    except Exception, e:
+        return jsonify(status='ERROR', message=str(e))
 
 if __name__ == "__main__":
     app.run(
