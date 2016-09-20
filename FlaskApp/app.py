@@ -9,11 +9,20 @@ Triangle(app)
 def index():
     return render_template('index.html')
 
-@app.route('/addContact', methods=['GET', 'POST'])
+@app.route('/addContact', methods=['POST'])
 def contactDataPost():
     try:
-        json_data = request.json['contactData']
-        return jsonify(status='OK', message='inserted successfully')
+        json_data = request.json["contactData"]
+        firstName = json_data["firstName"]
+        lastName = json_data["lastName"]
+        email = json_data["email"]
+        phoneNumber = json_data["phoneNumber"]
+        address = json_data["address"]
+        city = json_data["city"]
+        country = json_data["country"]
+        postalCode = json_data["postalCode"]
+
+        return jsonify(status='OK', message=firstName)
 
     except Exception, e:
         return jsonify(status='ERROR', message=str(e))
