@@ -135,7 +135,7 @@ input {
     margin : 0 auto;
 }
 
-.first-name, .last-name, .email, .phone-number, .street, .city, .country, .postal-code {
+.first-name, .last-name, .email, .phone-number, .address, .city, .country, .postal-code {
     border: 3px solid #000;
     font-family: 'Lato', Calibri, Arial, sans-serif;
     line-height: 1.5;
@@ -147,7 +147,7 @@ input {
     background: transparent;
 }
 
-.first-name:focus, .last-name:focus, .email:focus, .phone-number:focus, .street:focus, .city:focus, .country:focus, .postal-code:focus {
+.first-name:focus, .last-name:focus, .email:focus, .phone-number:focus, .address:focus, .city:focus, .country:focus, .postal-code:focus {
     outline: none;
     border: 3px solid #bf5fff;
 }

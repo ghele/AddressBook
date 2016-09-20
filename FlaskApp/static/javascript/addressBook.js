@@ -16,7 +16,8 @@ myApp.config(["$routeProvider", function($routeProvider) {
 
 myApp.controller("AddCtrl", ["$scope", function($scope) {
     $scope.firstLastPattern = new RegExp(/^\b[A-Z][a-z]*(\s*\b[A-Z][a-z]*\b)*$/);
-    $scope.streetCityCountryPattern = new RegExp(/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/);
+    $scope.addressPattern = new RegExp(/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/);
+    $scope.cityCountryPattern = new RegExp(/^[a-zA-Z\s]*$/);
 
     $scope.checkDirtyAndInvalid = function(fieldName) {
         if(($scope.addressBookForm[fieldName].$dirty) && ($scope.addressBookForm[fieldName].$invalid)) {
