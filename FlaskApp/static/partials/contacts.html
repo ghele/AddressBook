@@ -1,12 +1,19 @@
 <p class="contacts-title">Contacts</p>
 <div class="center">
-    <div class="no-contacts" ng-hide="contactsList()">There are no contacts in your address book
+    <div class="no-contacts" ng-hide="contactListNotEmpty">There are no contacts in your address book
         <i class="fa fa-smile-o" aria-hidden="true"></i>
     </div>
-    <div ng-show="contactsList()">
-        {{contactEntries}}
+    <div ng-show="contactListNotEmpty" ng-repeat="contact in contactEntries">
+        <div class="left col-md-6">
+            <div> {{contact.firstName}} {{contact.lastName}} </div>
+            <div> {{contact.address}} {{contact.city}} {{ contact.postalCode}} {{contact.country}} </div>
+        </div>
+        <div class="right col-md-3">
+            <div> {{contact.email}} </div>
+            <div> {{contact.phoneNumber}} </div>
+        </div>
     </div>
-    <a href="/#/contacts/addContact" ng-class="contactsList() ? 'bottom' : none">
+    <a href="/#/contacts/addContact" ng-class="contactListNotEmpty ? 'bottom' : none">
         <input type="button" value="Add New Contact" class="add-btn"/>
     </a>
 </div>

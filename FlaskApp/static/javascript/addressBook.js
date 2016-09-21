@@ -59,19 +59,22 @@ myApp.controller("AddCtrl", ["$scope", "$http", function($scope, $http) {
     }
 }]);
 
-myApp.controller("ContactsCtrl", ["$scope", function($scope) {
-    // var self = this;
-    $scope.contactEntries = [];
-    $scope.contactsList = function() {
+myApp.controller("ContactsCtrl", ["$scope", "$http", function($scope, $http) {
+    $http({
+        method: 'GET',
+        url: '/contacts'
+    }).then(function successCallback(response) {
+        $scope.contactEntries = response.data;
         if($scope.contactEntries.length != 0) {
-            return true;
+                $scope.contactListNotEmpty = true
+        } else {
+            $scope.contactListNotEmpty = false
         }
-        return false;
-    }
-    // self.contactsListSee = function() {
-    //     return self.con
-    // }
-}])
+        console.log('contact', response.data)
+    }, function errorCallback(error) {
+        console.log(error)
+    });
+}]);
 
 // myApp.controller('TestController', ['$scope', '$http', function($scope, $http) {
 //   $scope.greeting = 'Hola!';

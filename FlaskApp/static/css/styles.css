@@ -155,3 +155,11 @@ input {
 .error {
     border: 3px solid #ff4c4c;
 }
+
+.left.col-md-3 {
+    float: left;
+}
+
+.right.col-md-3 {
+    float: right;
+}
