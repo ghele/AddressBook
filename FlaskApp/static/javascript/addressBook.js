@@ -1,19 +1,5 @@
 var myApp = angular.module('addressBookApp', ['ngRoute']);
 
-myApp.config(["$routeProvider", function($routeProvider) {
-    $routeProvider.when("/", {
-        templateUrl: "../static/partials/home.html",
-    });
-    $routeProvider.when("/contacts", {
-        templateUrl: "../static/partials/contacts.html",
-        controller: "ContactsCtrl"
-    });
-    $routeProvider.when("/contacts/addContact", {
-        templateUrl: "../static/partials/addContact.html",
-        controller: "AddCtrl"
-    });
-}]);
-
 myApp.controller("AddCtrl", ["$scope", "$http", function($scope, $http) {
     $scope.firstLastPattern = new RegExp(/^\b[A-Z][a-z]*(\s*\b[A-Z][a-z]*\b)*$/);
     $scope.addressPattern = new RegExp(/^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/);
