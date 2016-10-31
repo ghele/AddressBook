@@ -16,8 +16,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'static/javascript/hw/*.js',
-      'test/*.spec.js'
+      'static/javascript/libs/angular.js',
+      'static/javascript/libs/angular-route.js',
+      'static/javascript/libs/angular-mock.js',
+      'static/javascript/hw/hw.js',
+      'static/javascript/controllers/contactsController.js',
+      'static/javascript/controllers/addController.js',
+      'test/hw.spec.js',
+      'test/controllers/contactsController.spec.js'
     ],
 
 
@@ -30,7 +36,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'static/javascript/hw/*.js': 'coverage'
+      'static/javascript/hw/hw.js': 'coverage',
+      'static/javascript/controllers/addController.js': 'coverage',
+      'static/javascript/controllers/contactsController.js': 'coverage'
     },
 
 
